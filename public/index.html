@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <script src="./assets/js/jquery-3.6.1.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <title>Home</title>
+  </head>
+  <body
+    class="flex flex-col w-screen h-screen bg-gray-200 relative"
+    x-data="{ isOpen : false, cartOpen : false }"
+  >
+    <!-- Nav Start -->
+    <nav>
+      <div
+        class="w-full py-2 border-t-2 border-b-2 border-gray-300 flex justify-between items-center px-4 bg-white shadow-lg"
+      >
+        <button
+          class="p-2 bg-gray-200 rounded-lg"
+          id="menu"
+          aria-label="toggle menu"
+          @click="isOpen = !isOpen"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+        <div class="flex items-center gap-2">
+          <button id="search">
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </button>
+          <button
+            id="cart"
+            class="px-4 py-2 rounded-lg bg-violet-600 text-center"
+            @click="cartOpen = !cartOpen"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="white"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Menu Bar -->
+    <div class="absolute z-10 w-full h-full bg-gray-900/20" x-show="isOpen">
+        <div class="absolute w-10/12 max-w-sm h-full bg-white z-20 p-5">
+            <button class="flex justify-end w-full" @click="isOpen = false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h1 class="text-lg font-bold">Arniko Arts</h1>
+            <div class="text-sm w-full flex flex-col gap-4 mt-4 !font-light">
+                <a class="bg-violet-100 w-full p-2 rounded-lg" href="#">Items</a>
+                <a class="menulist-item" href="#">Share with friends</a>
+                <a class="menulist-item" href="#">WhatsApp Us</a>
+                <a class="menulist-item" href="#">Admin</a>
+            </div>
+            <select name="lang" id="lang" class="focus:outline-none mt-4 rounded-lg border-gray-300 border-solid border w-8/12 p-2">
+                <option value="en" class="text-sm">English</option>
+            </select>
+        </div>
+
+        <div class="absolute w-full h-full z-10" @click="isOpen = false"></div>
+        
+    </div>
+    <!-- Menu Bar end -->
+    <!-- Nav End -->
+
+    <!-- Cart Model Start -->
+    <div class="absolute w-full h-full bg-gray-900/10 z-10" x-show="cartOpen">
+        Test Test
+        <div class="absolute w-full h-full z-10" @click="cartOpen = false"></div>
+    </div>
+    <!-- Cart Model End -->
+
+    <container class="flex flex-col gap-4 mx-2 overflow-scroll h-full">
+      <!-- Profile image and Company name -->
+      <section class="flex flex-col justify-center items-center gap-4 mt-5">
+        <img
+          src="./assets/img/product.jpg"
+          alt="product_img"
+          class="rounded-full w-32 h-32"
+        />
+        <h2 class="font-bold tracking-wider">Arniko Arts</h2>
+      </section>
+      <!-- Profile image and Company name end -->
+
+      <!-- Contact us Accordion start -->
+      <section>
+        <button
+          class="w-full p-4 flex justify-between bg-white rounded-lg group hover:bg-violet-500 cursor-pointer focus:bg-violet-500 shadow-md"
+          id="contant-us"
+        >
+          <svg
+            class="w-6 h-6 group-hover:stroke-white group-focus:stroke-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            ></path>
+          </svg>
+          <p class="group-hover:text-white group-focus:text-white">
+            Contact us
+          </p>
+          <svg
+            class="w-6 h-6 group-hover:stroke-white group-focus:stroke-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+      </section>
+      <!-- Contact us Accordion end -->
+
+      <!-- items -->
+      <section>
+        <div
+          class="bg-white rounded-lg shadow-md p-4 flex flex-col gap-4 flex-1"
+        >
+          <p class="">Items</p>
+          <div class="grid grid-cols-1 gap-5">
+            <!-- Item -->
+            <div class="flex gap-2 justify-between">
+              <div class="flex items-center gap-2 justify-between">
+                <!-- Item image start -->
+                <img
+                  src="./assets/img/product.jpg"
+                  alt="product_img"
+                  class="w-16 h-16 rounded-lg"
+                />
+                <!-- Item image end -->
+                <div class="flex flex-col gap-2">
+                  <h2 class="font-bold text-md">Fog Liquid</h2>
+                  <p class="flex flex-col text-xs text-gray-500">
+                    <span>Best fog liquid for your smoke machine</span>
+                    <span>4.5kg</span>
+                    <span>4 nos in a carton</span>
+                  </p>
+                </div>
+
+                <p class="font-bold text-sm flex-none">Rs. 1,500.00</p>
+              </div>
+            </div>
+            <!-- Item end -->
+            <hr>
+            <!-- Item -->
+            <div class="flex gap-2 justify-between">
+              <div class="flex items-center gap-2 justify-between">
+                <!-- Item image start -->
+                <img
+                  src="./assets/img/product.jpg"
+                  alt="product_img"
+                  class="w-16 h-16 rounded-lg"
+                />
+                <!-- Item image end -->
+                <div class="flex flex-col gap-2">
+                  <h2 class="font-bold text-md">Fog Liquid</h2>
+                  <p class="flex flex-col text-xs text-gray-500">
+                    <span>Best fog liquid for your smoke machine</span>
+                    <span>4.5kg</span>
+                    <span>4 nos in a carton</span>
+                  </p>
+                </div>
+
+                <p
+                  class="font-bold text-sm flex-none flex flex-col justify-center"
+                >
+                  <span
+                    class="text-xs line-through font-normal text-gray-500 text-center"
+                    >Rs. 2000</span
+                  >
+                  <span>Rs. 1,500.00</span>
+                </p>
+              </div>
+            </div>
+            <!-- Item end -->
+          </div>
+        </div>
+      </section>
+      <!-- items end -->
+    </container>
+  </body>
+</html>
