@@ -9,11 +9,16 @@
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css"
+    />
+    <script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <title>Home</title>
   </head>
   <body
     class="flex flex-col w-full h-screen bg-gray-200 relative max-w-md mx-auto overflow-y-auto scrollbar-thumb-violet-600 scrollbar-track-violet-300 scrollbar-thin scrollbar-track-rounded-full scrollbar-thumb-rounded-full"
-    x-data="{ isOpen : false, cartOpen : false }"
+    x-data="{ isOpen : false, cartOpen : false, searchOpen : false }"
   >
     <!-- Nav Start -->
     <nav class="sticky top-0 w-full">
@@ -42,7 +47,7 @@
           </svg>
         </button>
         <div class="flex items-center gap-2">
-          <button id="search">
+          <button id="search" @click="searchOpen = !searchOpen">
             <svg
               class="w-4 h-4"
               fill="none"
@@ -123,10 +128,162 @@
 
     <!-- Cart Model Start -->
     <div class="absolute w-full h-full bg-gray-900/10 z-10" x-show="cartOpen">
-      Test Test
+      <div
+        class="relative w-10/12 h-full bg-white float-right z-20 p-4 overflow-y-auto pb-16 scrollbar-thumb-violet-600 scrollbar-track-violet-300 scrollbar-thin scrollbar-track-rounded-full scrollbar-thumb-rounded-full"
+      >
+        <button class="flex justify-end w-full" @click="cartOpen = false">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+        <h1 class="font-bold mb-5">Order Details</h1>
+        <hr />
+        <h2 class="font-bold pt-4 pb-2">Contact</h2>
+        <fieldset class="flex flex-col gap-4 w-full">
+          <div class="flex flex-col gap-2">
+            <label for="name">Name <span class="text-red-500">*</span></label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value="Arniko Arts"
+              class="border border-1 border-gray-300 py-2 px-3 rounded-lg outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="name">Phone <span class="text-red-500">*</span></label>
+            <div class="border border-1 border-gray-300 rounded-lg flex">
+              <input
+                name="phone"
+                type="text"
+                id="phone"
+                class="py-2 px-3 w-full rounded-lg"
+                value="985 110 862 9"
+              />
+            </div>
+          </div>
+          <hr />
+        </fieldset>
+        <fieldset>
+          <div class="flex flex-col gap-2 mt-2">
+            <h2 class="font-bold">Delivery</h2>
+            <div class="flex gap-4">
+              <div class="flex gap-2">
+                <input
+                  type="radio"
+                  name="delivery_type"
+                  id="delivery_type"
+                  checked
+                />
+                <label for="delivery_type">Delivery</label>
+              </div>
+              <div class="flex gap-2">
+                <input type="radio" name="delivery_type" id="delivery_type" />
+                <label for="delivery_type">Pick Up</label>
+              </div>
+            </div>
+          </div>
+          <div class="pt-2 flex flex-col gap-2">
+            <p class="">Address <span class="text-red-500">*</span></p>
+            <input
+              type="text"
+              name="street"
+              id="street"
+              value="571 Siddhartha Sadak, Dallu Awas"
+            />
+            <input
+              type="text"
+              name="street"
+              id="street"
+              placeholder="Apartment, suite, floor, unit # (optional)"
+            />
+          </div>
+          <div class="pt-2 flex flex-col gap-2">
+            <p class="">Postal Code <span class="text-red-500">*</span></p>
+            <input type="text" name="street" id="street" value="44600" />
+          </div>
+        </fieldset>
+
+        <!-- Order Summary Starts -->
+        <div class="w-full h-max p-4 bg-stone-200/50 mt-6 rounded-lg">
+          <div>
+            <!-- Heading -->
+            <h2 class="font-bold flex flex-col">Order Summary</h2>
+            <a href="#" class="text-xs text-indigo-700 font-semibold">Clear</a>
+          </div>
+          <div class="mt-2 flex flex-col gap-4 text-xs">
+            <!-- Summary -->
+            <p class="flex w-full justify-between">
+              <span>Items Total</span>
+              <span>Rs 0.00</span>
+            </p>
+            <p class="flex w-full justify-between">
+              <span>Misc.</span>
+              <span>Rs 0.00</span>
+            </p>
+            <p class="flex w-full justify-between">
+              <span>Delivery</span>
+              <span>Rs 0.00</span>
+            </p>
+            <a href="#" class="text-indigo-600 font-medium"
+              >Add a discound code</a
+            >
+            <hr />
+            <div>
+              <!-- Sub Total -->
+              <p class="flex w-full justify-between text-xs">
+                <span>Subtotal</span>
+                <span>Rs 0.00</span>
+              </p>
+            </div>
+            <hr />
+            <div>
+              <!-- Total -->
+              <p class="flex w-full justify-between text-sm font-medium">
+                <span>Total</span>
+                <span>Rs 0.00</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Order Summary Ends -->
+        <button class="w-full py-1 bg-green-600 rounded-md flex justify-center gap-2 text-white mt-4">
+          <svg
+            class="w-6 h-6 text-white fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+            ></path>
+          </svg>
+          <span>WhatsApp Order</span>
+        </button>
+      </div>
       <div class="absolute w-full h-full z-10" @click="cartOpen = false"></div>
     </div>
     <!-- Cart Model End -->
+
+    <!-- Search Bar Start -->
+    <div class="absolute flex justify-center w-full h-full bg-gray-900/10 z-10" x-show="searchOpen">
+      <div class="w-10/12 h-max bg-white rounded-lg absolute top-16 mx-auto z-20 flex items-center px-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <input type="text" class="w-full rounded-lg !border-none" placeholder="Search items">
+      </div>
+      <div class="absolute w-full h-full z-10" @click="searchOpen = false"></div>
+    </div>
+    <!-- Search Bar End -->
 
     <container class="flex flex-col gap-4 mx-2 h-full pb-10">
       <!-- Profile image and Company name -->
@@ -172,6 +329,22 @@
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
+                x-show="!openContact"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="white"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                x-show="openContact"
               >
                 <path
                   stroke-linecap="round"
@@ -183,9 +356,62 @@
             </div>
           </div>
         </button>
-            <div x-show="openContact" class="w-full p-4 pt-9 bg-white -mt-5 rounded-b-lg shadow-xl">
-              hello
+        <div
+          x-show="openContact"
+          class="w-full p-4 pt-9 bg-white -mt-5 rounded-b-lg shadow-xl"
+        >
+          <fieldset class="flex flex-col gap-4 w-full">
+            <div class="flex flex-col gap-2">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value="Arniko Arts"
+                class="border border-1 border-gray-300 py-2 px-3 rounded-lg outline-none"
+              />
             </div>
+            <div class="flex flex-col gap-2">
+              <label for="name">Phone</label>
+              <div class="border border-1 border-gray-300 rounded-lg flex">
+                <input
+                  name="phone"
+                  type="text"
+                  id="phone"
+                  class="py-2 px-3 w-full rounded-lg"
+                  value="985 110 862 9"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="name">Message</label>
+              <div class="border border-1 border-gray-300 rounded-lg flex">
+                <textarea
+                  name="message"
+                  type="textarea"
+                  id="message"
+                  class="py-2 px-3 w-full rounded-lg"
+                  rows="2"
+                ></textarea>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <button
+                class="bg-indigo-500/40 rounded-lg py-1.5 font-bold text-white"
+              >
+                WhatsApp
+              </button>
+            </div>
+          </fieldset>
+        </div>
+        <script>
+          var input = document.querySelector("#phone");
+          window.intlTelInput(input, {
+            separateDialCode: true,
+            initialCountry: "np",
+            preferredCountries: ["np", "in", "us"],
+          });
+        </script>
       </section>
       <!-- Contact us Accordion end -->
 

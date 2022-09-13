@@ -15,3 +15,9 @@ body {
 option {
     @apply text-sm;
 }
+input {
+    @apply outline-none border border-gray-300 rounded-lg p-2;
+}
+.iti {
+    @apply !w-full;
+}
