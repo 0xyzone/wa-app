@@ -17,7 +17,7 @@
     <title>Home</title>
   </head>
   <body
-    class="flex flex-col w-full h-screen bg-gray-200 relative max-w-md mx-auto overflow-y-auto scrollbar-thumb-violet-600 scrollbar-track-violet-300 scrollbar-thin scrollbar-track-rounded-full scrollbar-thumb-rounded-full"
+    class="flex flex-col w-full h-screen bg-gray-200 relative max-w-md mx-auto overflow-y-auto scrollbar-thumb-violet-600 scrollbar-track-violet-300 scrollbar-thin scrollbar-track-rounded-full scrollbar-thumb-rounded-full scroll-smooth"
     x-data="{ isOpen : false, cartOpen : false, searchOpen : false }"
   >
     <!-- Nav Start -->
@@ -129,7 +129,7 @@
     <!-- Cart Model Start -->
     <div class="absolute w-full h-full bg-gray-900/10 z-10" x-show="cartOpen">
       <div
-        class="relative w-10/12 h-full bg-white float-right z-20 p-4 overflow-y-auto pb-16 scrollbar-thumb-violet-600 scrollbar-track-violet-300 scrollbar-thin scrollbar-track-rounded-full scrollbar-thumb-rounded-full"
+        class="relative w-10/12 h-full bg-white float-right z-20 p-4 overflow-y-auto pb-16 scrollbar-thumb-violet-600 scrollbar-track-violet-300 scrollbar-thin scrollbar-track-rounded-full scrollbar-thumb-rounded-full scroll-smooth"
       >
         <button class="flex justify-end w-full" @click="cartOpen = false">
           <svg
