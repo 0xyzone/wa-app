@@ -287,17 +287,17 @@
 
     <!-- Search Bar Start -->
     <div
-      class="absolute flex justify-center w-full h-full bg-gray-900/10 z-10"
+      class="absolute flex justify-center w-full h-full bg-gradient-to-b from-gray-900/80 to-transparent z-10"
       x-show="searchOpen"
     >
       <div
-        class="w-10/12 h-max bg-white rounded-lg absolute top-16 mx-auto z-20 flex items-center px-2"
+        class="w-11/12 h-max rounded-lg absolute top-16 z-20 flex items-center mx-auto"
         @click.away="searchOpen = false"
       >
         <svg
-          class="w-6 h-6"
+          class="w-8 h-8 animate-pulse"
           fill="none"
-          stroke="currentColor"
+          stroke="white"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -310,7 +310,7 @@
         </svg>
         <input
           type="text"
-          class="w-full rounded-lg !border-none"
+          class="w-full !border-none bg-transparent text-3xl placeholder:text-white !font-thin placeholder:!font-thin text-white"
           placeholder="Search items"
         />
       </div>

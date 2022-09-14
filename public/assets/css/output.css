@@ -747,6 +747,10 @@ video {
   height: max-content;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .h-32 {
   height: 8rem;
 }
@@ -783,6 +787,14 @@ video {
   width: 66.666667%;
 }
 
+.w-11\/12 {
+  width: 91.666667%;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -799,12 +811,33 @@ video {
   max-width: 24rem;
 }
 
+.max-w-md {
+  max-width: 28rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
 
 .flex-none {
   flex: none;
+}
+
+@-webkit-keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .resize {
@@ -950,6 +983,10 @@ video {
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-green-500\/40 {
   background-color: rgb(34 197 94 / 0.4);
 }
@@ -957,6 +994,20 @@ video {
 .bg-gray-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.from-gray-900\/80 {
+  --tw-gradient-from: rgb(17 24 39 / 0.8);
+  --tw-gradient-to: rgb(17 24 39 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-transparent {
+  --tw-gradient-to: transparent;
 }
 
 .fill-current {
@@ -1002,11 +1053,6 @@ video {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .py-1\.5 {
@@ -1061,6 +1107,11 @@ video {
   line-height: 1rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1075,6 +1126,10 @@ video {
 
 .font-medium {
   font-weight: 500;
+}
+
+.\!font-thin {
+  font-weight: 100 !important;
 }
 
 .font-normal {
@@ -1287,6 +1342,33 @@ input {
 
 .items:hover {
   background-color: rgb(209 213 219 / 0.5);
+}
+
+.placeholder\:\!font-thin::-moz-placeholder {
+  font-weight: 100 !important;
+}
+
+.placeholder\:\!font-thin:-ms-input-placeholder {
+  font-weight: 100 !important;
+}
+
+.placeholder\:\!font-thin::placeholder {
+  font-weight: 100 !important;
+}
+
+.placeholder\:text-white::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-white:-ms-input-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-white::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .focus\:outline-none:focus {
