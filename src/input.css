@@ -25,3 +25,7 @@ input {
 .iti {
     @apply !w-full;
 }
+
+.items {
+    @apply flex gap-2 justify-between hover:bg-gray-300/50 p-2 rounded-lg cursor-pointer;
+}

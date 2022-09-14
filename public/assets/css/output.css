@@ -630,6 +630,14 @@ video {
   top: 4rem;
 }
 
+.right-2 {
+  right: 0.5rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -650,6 +658,11 @@ video {
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .mt-4 {
@@ -674,6 +687,10 @@ video {
 
 .-mt-5 {
   margin-top: -1.25rem;
+}
+
+.-mt-2 {
+  margin-top: -0.5rem;
 }
 
 .block {
@@ -738,6 +755,14 @@ video {
   height: 4rem;
 }
 
+.h-64 {
+  height: 16rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -766,8 +791,8 @@ video {
   width: 4rem;
 }
 
-.max-w-md {
-  max-width: 28rem;
+.w-10 {
+  width: 2.5rem;
 }
 
 .max-w-sm {
@@ -884,6 +909,10 @@ video {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
+.border-b-gray-300\/50 {
+  border-bottom-color: rgb(209 213 219 / 0.5);
+}
+
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -925,8 +954,18 @@ video {
   background-color: rgb(34 197 94 / 0.4);
 }
 
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
 .fill-current {
   fill: currentColor;
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .p-2 {
@@ -939,6 +978,10 @@ video {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .py-2 {
@@ -993,6 +1036,10 @@ video {
 
 .pt-9 {
   padding-top: 2.25rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
 }
 
 .text-center {
@@ -1061,6 +1108,11 @@ video {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .line-through {
@@ -1222,6 +1274,19 @@ input {
 
 .iti {
   width: 100% !important;
+}
+
+.items {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.items:hover {
+  background-color: rgb(209 213 219 / 0.5);
 }
 
 .focus\:outline-none:focus {

@@ -17,7 +17,7 @@
     <title>Home</title>
   </head>
   <body
-    class="flex flex-col w-full h-screen bg-gray-200 relative max-w-md mx-auto scrollbar-thumb-violet-600 scrollbar-track-violet-300 scrollbar-thin scrollbar-track-rounded-full scrollbar-thumb-rounded-full scroll-smooth overflow-y-visible"
+    class="flex flex-col w-full h-screen bg-gray-200 relative max-w-sm mx-auto scrollbar-thumb-violet-600 scrollbar-track-violet-300 scrollbar-thin scrollbar-track-rounded-full scrollbar-thumb-rounded-full scroll-smooth overflow-y-visible"
     x-data="{ isOpen : false, cartOpen : false, searchOpen : false }"
   >
     <!-- Nav Start -->
@@ -457,7 +457,8 @@
           <p class="">Items</p>
           <div class="grid grid-cols-1 gap-5">
             <!-- Item -->
-            <div class="flex gap-2 justify-between">
+            <div class="items"
+            @click="window.location.replace('product2.html')">
               <div class="flex items-center gap-2 justify-between">
                 <!-- Item image start -->
                 <img
@@ -481,7 +482,8 @@
             <!-- Item end -->
             <hr />
             <!-- Item -->
-            <div class="flex gap-2 justify-between">
+            <div class="items" 
+            @click="window.location.replace('product2.html')">
               <div class="flex items-center gap-2 justify-between">
                 <!-- Item image start -->
                 <img
