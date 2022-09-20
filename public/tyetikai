@@ -1,0 +1,65 @@
+<!-- Listing :: ListView -->
+            <div class="grid grid-cols-1 gap-5">
+              <!-- Item -->
+              <div
+                class="items"
+                @click="window.location.replace('product2.html')"
+              >
+                <div class="flex items-center gap-2 justify-between">
+                  <!-- Item image start -->
+                  <img
+                    src="./assets/img/product.jpg"
+                    alt="product_img"
+                    class="w-16 h-16 rounded-lg"
+                  />
+                  <!-- Item image end -->
+                  <div class="flex flex-col gap-2">
+                    <h2 class="font-bold text-md">Fog Liquid</h2>
+                    <p class="flex flex-col text-xs text-gray-500">
+                      <span>Best fog liquid for your smoke machine</span>
+                      <span>4.5kg</span>
+                      <span>4 nos in a carton</span>
+                    </p>
+                  </div>
+
+                  <p class="font-bold text-sm flex-none">Rs. 1,500.00</p>
+                </div>
+              </div>
+              <!-- Item end -->
+              <hr />
+              <!-- Item -->
+              <div
+                class="items"
+                @click="window.location.replace('product2.html')"
+              >
+                <div class="flex items-center gap-2 justify-between">
+                  <!-- Item image start -->
+                  <img
+                    src="./assets/img/product.jpg"
+                    alt="product_img"
+                    class="w-16 h-16 rounded-lg"
+                  />
+                  <!-- Item image end -->
+                  <div class="flex flex-col gap-2">
+                    <h2 class="font-bold text-md">Fog Liquid</h2>
+                    <p class="flex flex-col text-xs text-gray-500">
+                      <span>Best fog liquid for your smoke machine</span>
+                      <span>4.5kg</span>
+                      <span>4 nos in a carton</span>
+                    </p>
+                  </div>
+
+                  <p
+                    class="font-bold text-sm flex-none flex flex-col justify-center"
+                  >
+                    <span
+                      class="text-xs line-through font-normal text-gray-500 text-center"
+                      >Rs. 2000</span
+                    >
+                    <span>Rs. 1,500.00</span>
+                  </p>
+                </div>
+              </div>
+              <!-- Item end -->
+            </div>
+            <!-- Listing :: ListView end -->

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./assets/css/output.css" rel="stylesheet" />
+    <link href="./assets/css/all.css" rel="stylesheet" />
     <script src="./assets/js/jquery-3.6.1.min.js"></script>
     <script
       defer
@@ -450,15 +451,24 @@
       <!-- Contact us Accordion end -->
 
       <!-- items -->
-      <section>
+      <section x-data="{ listView : true }">
         <div
           class="bg-white rounded-lg shadow-md p-4 flex flex-col gap-4 flex-1"
         >
-          <p class="">Items</p>
-          <div class="grid grid-cols-1 gap-5">
+          <div class="flex justify-between w-full">
+            <p class="">Items</p>
+            <div class="flex gap-1">
+              <button class="toggleView" @click="listView = true"><i class="fa-solid fa-list"></i></button>
+              <button class="toggleView" @click="listView = false"><i class="fa-solid fa-grid"></i></button>
+            </div>
+          </div>
+          <!-- Listing :: ListView -->
+          <div class="grid grid-cols-1 gap-5" x-show="listView">
             <!-- Item -->
-            <div class="items"
-            @click="window.location.replace('product2.html')">
+            <div
+              class="items"
+              @click="window.location.replace('product2.html')"
+            >
               <div class="flex items-center gap-2 justify-between">
                 <!-- Item image start -->
                 <img
@@ -482,8 +492,10 @@
             <!-- Item end -->
             <hr />
             <!-- Item -->
-            <div class="items" 
-            @click="window.location.replace('product2.html')">
+            <div
+              class="items"
+              @click="window.location.replace('product2.html')"
+            >
               <div class="flex items-center gap-2 justify-between">
                 <!-- Item image start -->
                 <img
@@ -514,11 +526,65 @@
             </div>
             <!-- Item end -->
           </div>
+          <!-- Listing :: ListView end -->
+
+
+          <!-- Listing :: GridView -->
+
+          <div class="grid grid-cols-2 gap-5" x-show="!listView">
+            <!-- Item -->
+            <div
+              class="itemsGrid"
+              @click="window.location.replace('product2.html')"
+            >
+              <div class="flex flex-col items-center justify-between max-w-sm">
+                <!-- Item image start -->
+                <img
+                  src="./assets/img/product.jpg"
+                  alt="product_img"
+                  class="w-full h-32 rounded-lg object-contain bg-white"
+                />
+                <!-- Item image end -->
+                <div class="flex flex-col gap-1 items-center mt-2">
+                  <h2 class="font-bold text-xl">Fog Liquid</h2>
+                  <p class="font-light text-xs flex-none">Rs. 1,500.00</p>
+                </div>
+              </div>
+            </div>
+            <!-- Item end -->
+
+            <!-- Item -->
+            <div
+              class="itemsGrid"
+              @click="window.location.replace('product2.html')"
+            >
+              <div class="flex flex-col items-center justify-between max-w-sm">
+                <!-- Item image start -->
+                <img
+                  src="./assets/img/product.jpg"
+                  alt="product_img"
+                  class="w-full h-32 rounded-lg object-contain bg-white"
+                />
+                <!-- Item image end -->
+                <div class="flex flex-col gap-1 items-center mt-2">
+                  <h2 class="font-bold text-xl">Fog Liquid</h2>
+                  <div class="flex flex-col">
+                  <span
+                    class="text-xs line-through font-normal text-gray-500 text-center"
+                    >Rs. 2000</span
+                  >
+                  <p class="font-light text-xs flex-none">Rs. 1,500.00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item end -->
+          </div>
+
+          <!-- Listing :: GridView End -->
         </div>
       </section>
       <!-- items end -->
     </container>
-
-    
   </body>
 </html>
